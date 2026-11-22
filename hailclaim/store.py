@@ -1,4 +1,4 @@
-ENTITIES=['policy', 'plot', 'endorsement', 'hail_event', 'sample_plot', 'sample_observation', 'harvest', 'claim', 'appeal']
+ENTITIES=['policy', 'plot', 'endorsement', 'hail_event', 'sample_plot', 'sample_observation', 'harvest', 'claim', 'appeal', 'payment']
 import json, sqlite3
 from pathlib import Path
 

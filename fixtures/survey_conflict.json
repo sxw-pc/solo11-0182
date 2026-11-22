@@ -93,7 +93,9 @@
         "tags": [
           "T1",
           "T2"
-        ]
+        ],
+        "sample_time": 25,
+        "tree_id": "tree-1"
       }
     }
   ]
