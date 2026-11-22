@@ -15,7 +15,7 @@ def decide(ev):
     def out(name,value,proof):
         sources=[x["id"] for x in proof if x]
         result.append((name,value,sources if sources else [x["id"] for x in ev]))
-    policy=latest(ev,'policy'); event=latest(ev,'hail_event'); covered=bool(policy and event and policy['event_time']<=event['event_time'] and policy['data'].get('active',True)); out('承保责任时点锁定','在保' if covered else '不在保',[policy,event])
+    event=latest(ev,'hail_event'); eligible_policies=[x for x in allof(ev,'policy') if event and x['event_time']<=event['event_time']]; policy=max(eligible_policies,key=lambda x:(x['event_time'],x['received_at'],x['id'])) if eligible_policies else None; covered=bool(policy and policy['data'].get('active',True)); out('承保责任时点锁定','在保' if covered else '不在保',[policy,event])
     plots=allof(ev,'plot'); area=sum(float(x['data'].get('area',0)) for x in plots); ids=[x['data'].get('parcel') for x in plots]; unique=len(ids)==len(set(ids)); out('地块边界重叠裁决',area if unique else 0,plots)
     rate=float(policy['data'].get('rate',0)) if policy else 0; out('品种与保障单价适配',rate,[policy]+plots)
     event=latest(ev,'hail_event')

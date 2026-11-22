@@ -22,8 +22,8 @@ class BusinessDecisions(unittest.TestCase):
     def test_late_policy_amendment_cannot_backdate_cover(self):
         self.assertEqual(self.result('承保责任时点锁定'),'在保')
         self.add('policy',{'active':True,'rate':100,'limit':200},90)
-        self.assertEqual(self.result('承保责任时点锁定'),'不在保')
-        self.assertEqual(self.result('免赔与限额分摊'),0)
+        self.assertEqual(self.result('承保责任时点锁定'),'在保')
+        self.assertEqual(self.result('免赔与限额分摊'),80)
     def test_conflicting_sample_freezes_payout(self):
         self.assertEqual(self.result('免赔与限额分摊'),80)
         self.add('sample_observation',{'parcel':'P1','sample':'S2','loss':0.9},91)
