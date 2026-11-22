@@ -1,0 +1,5 @@
+[
+  {"feed_id":"A","observed_at":20,"hail":true},
+  {"feed_id":"B","observed_at":20,"hail":true},
+  {"feed_id":"C","observed_at":20,"hail":false}
+]
