@@ -1,0 +1,6 @@
+{
+  "applications": [
+    {"id": "spray-1", "parcel": "P0", "applied_at": 5, "wait_days": 7, "chemical": "X"}
+  ],
+  "harvest": {"lot": "lot-80", "parcel": "P1", "picked_at": 10, "boxes": 80}
+}
