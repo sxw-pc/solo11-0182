@@ -1,0 +1,72 @@
+{
+  "description": "09:00 orchard hail forecast as-of backtest. Feature pages carry physical event_time, gateway received_at and, where applicable, correction/clock-revision publication times. Four cases are frozen at issued_at=540 (09:00); the station intensity pages for those cases were only received at 605 (10:05) and must never be visible in the 09:00 cross-section.",
+  "threshold": 3,
+  "cases": [
+    {"event_id": "E1", "issued_at": 540, "label": 1},
+    {"event_id": "E2", "issued_at": 540, "label": 0},
+    {"event_id": "E3", "issued_at": 540, "label": 1},
+    {"event_id": "E4", "issued_at": 540, "label": 0}
+  ],
+  "feature_pages": [
+    {"id": "E1-page-station", "kind": "station_feature", "source": "station", "event_id": "E1", "event_time": 530, "received_at": 605, "intensity": 1},
+    {"id": "E2-page-station", "kind": "station_feature", "source": "station", "event_id": "E2", "event_time": 530, "received_at": 605, "intensity": 0},
+    {"id": "E3-page-station", "kind": "station_feature", "source": "station", "event_id": "E3", "event_time": 530, "received_at": 605, "intensity": 1},
+    {"id": "E4-page-station", "kind": "station_feature", "source": "station", "event_id": "E4", "event_time": 530, "received_at": 605, "intensity": 0},
+
+    {"id": "E1-page-radar", "kind": "radar_feature", "source": "radar", "event_id": "E1", "event_time": 520, "received_at": 535, "published_at": 535, "intensity": 1, "station_scope": ["S-01"], "evidence": "radar-snapshot-0855-E1"},
+    {"id": "E2-page-radar", "kind": "radar_feature", "source": "radar", "event_id": "E2", "event_time": 520, "received_at": 535, "published_at": 535, "intensity": 0, "station_scope": ["S-02"], "evidence": "radar-snapshot-0855-E2"},
+    {"id": "E3-page-radar", "kind": "radar_feature", "source": "radar", "event_id": "E3", "event_time": 520, "received_at": 535, "published_at": 535, "intensity": 0, "station_scope": ["S-03"], "evidence": "radar-snapshot-0855-E3"},
+    {"id": "E4-page-radar", "kind": "radar_feature", "source": "radar", "event_id": "E4", "event_time": 520, "received_at": 535, "published_at": 535, "intensity": 0, "station_scope": ["S-04"], "evidence": "radar-snapshot-0855-E4"}
+  ],
+  "models": [
+    {
+      "version": "v1",
+      "status": "withdrawn",
+      "status_reason": "no_point_in_time_source",
+      "feature_ids": ["E1-page-station", "E2-page-station", "E3-page-station", "E4-page-station"],
+      "train_feature_ids": ["E1-page-station", "E2-page-station", "E3-page-station", "E4-page-station"],
+      "snapshot": "snapshot-v1-provisional",
+      "scope": null,
+      "disclosure": "曾对外宣称 09:00 预报 4/4；该成绩使用 10:05 才到达的强度页，非 09:00 可用信息。"
+    },
+    {
+      "version": "v1-diagnostic",
+      "status": "diagnostic",
+      "status_reason": "retained_as_post_hoc_diagnostic",
+      "feature_ids": ["E1-page-station", "E2-page-station", "E3-page-station", "E4-page-station"],
+      "train_feature_ids": [],
+      "snapshot": "snapshot-v1-provisional",
+      "scope": null,
+      "disclosure": "仅作事后诊断记录，不得作为 09:00 预警版本发布。"
+    },
+    {
+      "version": "v2",
+      "status": "published",
+      "feature_ids": ["E1-page-radar", "E2-page-radar", "E3-page-radar", "E4-page-radar"],
+      "train_feature_ids": ["train-radar-0901", "train-radar-0902", "train-radar-0903", "train-radar-0904"],
+      "snapshot": "snapshot-v2-radar",
+      "scope": {"sources": ["radar"], "stations": ["S-01", "S-02", "S-03", "S-04"], "issued_at": 540},
+      "disclosure": "采用 08:55 已公开且有独立存证的雷达快照；不含 10:05 强度页。"
+    }
+  ],
+  "snapshots": [
+    {
+      "name": "snapshot-v1-provisional",
+      "purpose": "training",
+      "created_at": 700,
+      "freeze_as_of": 540,
+      "used_for": "v1 provisional training",
+      "page_ids": ["E1-page-station", "E2-page-station", "E3-page-station", "E4-page-station"],
+      "issued_at": {"E1": 540, "E2": 540, "E3": 540, "E4": 540}
+    },
+    {
+      "name": "snapshot-v2-radar",
+      "purpose": "training",
+      "created_at": 540,
+      "freeze_as_of": 540,
+      "used_for": "v2 radar training",
+      "page_ids": ["E1-page-radar", "E2-page-radar", "E3-page-radar", "E4-page-radar"],
+      "issued_at": {"E1": 540, "E2": 540, "E3": 540, "E4": 540}
+    }
+  ]
+}
