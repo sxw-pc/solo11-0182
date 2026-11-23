@@ -1,0 +1,140 @@
+{
+  "events": [
+    {
+      "id": "cert-A-general",
+      "kind": "adjuster_cert",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "A", "skill": "general", "valid_from": 0, "valid_until": 1439, "station": "West"}
+    },
+    {
+      "id": "cert-A-roof",
+      "kind": "adjuster_cert",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "A", "skill": "roof", "valid_from": 0, "valid_until": 1439, "station": "West"}
+    },
+    {
+      "id": "cert-B-general",
+      "kind": "adjuster_cert",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "B", "skill": "general", "valid_from": 0, "valid_until": 1439, "station": "East"}
+    },
+    {
+      "id": "cert-C-general",
+      "kind": "adjuster_cert",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "C", "skill": "general", "valid_from": 0, "valid_until": 1439, "station": "North", "external": true}
+    },
+    {
+      "id": "cert-C-roof",
+      "kind": "adjuster_cert",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "C", "skill": "roof", "valid_from": 0, "valid_until": 1439, "station": "North", "external": true}
+    },
+    {
+      "id": "shift-A",
+      "kind": "shift_calendar",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "A", "start_minute": 480, "end_minute": 960, "lunch_start": 720, "lunch_end": 780, "station": "West"}
+    },
+    {
+      "id": "shift-B",
+      "kind": "shift_calendar",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "B", "start_minute": 480, "end_minute": 960, "lunch_start": 720, "lunch_end": 780, "station": "East"}
+    },
+    {
+      "id": "shift-C",
+      "kind": "shift_calendar",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"worker_id": "C", "start_minute": 480, "end_minute": 960, "lunch_start": 720, "lunch_end": 780, "station": "North", "external": true}
+    },
+    {
+      "id": "leg-East-West",
+      "kind": "road_leg",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"from_site": "East", "to_site": "West", "minutes": 30}
+    },
+    {
+      "id": "leg-West-East",
+      "kind": "road_leg",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"from_site": "West", "to_site": "East", "minutes": 30}
+    },
+    {
+      "id": "leg-North-West",
+      "kind": "road_leg",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"from_site": "North", "to_site": "West", "minutes": 25}
+    },
+    {
+      "id": "leg-North-East",
+      "kind": "road_leg",
+      "subject": "roster-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {"from_site": "North", "to_site": "East", "minutes": 35}
+    },
+    {
+      "id": "appt-J1",
+      "kind": "appointment",
+      "subject": "roster-1",
+      "event_time": 480,
+      "received_at": 480,
+      "data": {"job_id": "J1", "skill": "general", "site": "East", "window_start": 540, "window_end": 580, "duration_minutes": 40, "customer": "East 果园"}
+    },
+    {
+      "id": "appt-J2",
+      "kind": "appointment",
+      "subject": "roster-1",
+      "event_time": 480,
+      "received_at": 480,
+      "data": {"job_id": "J2", "skill": "roof", "site": "West", "window_start": 600, "window_end": 640, "duration_minutes": 40, "customer": "West 果园"}
+    },
+    {
+      "id": "checkin-J1-A",
+      "kind": "checkin",
+      "subject": "roster-1",
+      "event_time": 540,
+      "received_at": 540,
+      "data": {"job_id": "J1", "worker_id": "A", "at_minute": 540, "site": "East", "mode": "onsite", "qr": "QR-J1-A"}
+    },
+    {
+      "id": "checkin-J2-C",
+      "kind": "checkin",
+      "subject": "roster-1",
+      "event_time": 600,
+      "received_at": 600,
+      "data": {"job_id": "J2", "worker_id": "C", "at_minute": 600, "site": "West", "mode": "onsite", "qr": "QR-J2-C"}
+    },
+    {
+      "id": "obs-J1-east",
+      "kind": "sample_observation",
+      "subject": "roster-1",
+      "event_time": 550,
+      "received_at": 560,
+      "data": {"parcel": "East", "tree_id": "east-1", "sample_time": 550, "loss": 0.4}
+    }
+  ]
+}
